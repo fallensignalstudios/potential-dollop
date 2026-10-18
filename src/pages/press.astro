@@ -1,0 +1,155 @@
+---
+import Base from "../layouts/Base.astro";
+import {
+  authorLine,
+  images,
+  press,
+  pressEmail,
+  siteUrl,
+  steamUrl,
+} from "../content/site";
+
+const facts = [
+  ["Developer", press.factsheet.developer],
+  ["Based in", press.factsheet.basedIn],
+  ["Release date", press.factsheet.release],
+  ["Platform", press.factsheet.platform],
+  ["Price", press.factsheet.price],
+  ["Website", press.factsheet.website],
+  ["Steam", `App ${"4032180"}`],
+  ["Press contact", press.factsheet.pressContact],
+];
+---
+
+<Base title={press.title} description={press.description} ogImage={images.ogHome} ogAlt={images.ogHomeAlt}>
+  <main id="main" tabindex="-1">
+    <header class="site-shell page-intro">
+      <p class="eyebrow">{press.eyebrow}</p>
+      <h1 class="section-title">{press.h1}</h1>
+      <p class="status-chip">{press.intro}</p>
+    </header>
+
+    <div class="site-shell">
+      <section class="press-section" id="factsheet" aria-labelledby="factsheet-heading">
+        <h2 id="factsheet-heading" class="section-title">{press.factsheet.heading}</h2>
+        <dl class="factsheet">
+          {
+            facts.map(([term, value]) => (
+              <div>
+                <dt>{term}</dt>
+                <dd>
+                  {term === "Website" ? (
+                    <a class="text-link" href={siteUrl}>{value}</a>
+                  ) : term === "Steam" ? (
+                    <a class="text-link" href={steamUrl("press")} target="_blank" rel="noopener noreferrer">
+                      Wishlist on Steam, app 4032180<span class="sr-only"> (opens in a new tab)</span>
+                    </a>
+                  ) : term === "Press contact" ? (
+                    <a class="text-link" href={`mailto:${pressEmail}`}>{value}</a>
+                  ) : term === "Based in" ? (
+                    <span class="copy-todo">{value}</span>
+                  ) : (
+                    value
+                  )}
+                </dd>
+              </div>
+            ))
+          }
+        </dl>
+      </section>
+
+      <section class="press-section" id="description" aria-labelledby="description-heading">
+        <h2 id="description-heading" class="section-title">{press.summary.heading}</h2>
+        <div class="prose-block">
+          <p>{press.summary.short}</p>
+          <p class="copy-todo">{press.summary.paragraph}</p>
+        </div>
+      </section>
+
+      <section class="press-section" id="history" aria-labelledby="history-heading">
+        <h2 id="history-heading" class="section-title">{press.history.heading}</h2>
+        <div class="prose-block">
+          <p>{authorLine}</p>
+          <p>{press.history.body}</p>
+          <p class="copy-todo">{press.history.ai}</p>
+        </div>
+      </section>
+
+      <section class="press-section" id="features" aria-labelledby="features-heading">
+        <h2 id="features-heading" class="section-title">{press.features.heading}</h2>
+        <p class="copy-todo">{press.features.placeholder}</p>
+        <ul class="feature-list">
+          {press.features.items.map((item) => <li>{item}</li>)}
+        </ul>
+      </section>
+
+      <section class="press-section" id="videos" aria-labelledby="videos-heading">
+        <h2 id="videos-heading" class="section-title">{press.videos.heading}</h2>
+        <p class="video-placeholder">{press.videos.placeholder}</p>
+      </section>
+
+      <section class="press-section" id="images" aria-labelledby="images-heading">
+        <h2 id="images-heading" class="section-title">{press.images.heading}</h2>
+        <p class="copy-todo">{press.images.note}</p>
+        <ul class="download-list">
+          <li><a href={images.cover.src}>{press.images.coverLabel}</a></li>
+          <li><a href={images.cover.jpeg}>{press.images.coverJpegLabel}</a></li>
+          <li>
+            <a href="/press#press-zips">{press.images.zipLabel}</a>
+          </li>
+        </ul>
+        <p class="empty-note" id="press-zips">{press.images.zipNote}</p>
+      </section>
+
+      <section class="press-section" id="logo" aria-labelledby="logo-heading">
+        <h2 id="logo-heading" class="section-title">{press.logo.heading}</h2>
+        <p class="copy-todo">{press.logo.note}</p>
+        <div class="logo-row" aria-hidden="true">
+          <div class="logo-swatch dark">
+            <img src="/images/logo-mark-dark.svg" alt="" width="96" height="96" />
+          </div>
+          <div class="logo-swatch light">
+            <img src="/images/logo-mark-light.svg" alt="" width="96" height="96" />
+          </div>
+        </div>
+        <ul class="download-list">
+          <li><a href="/images/logo-mark-dark.svg">{press.logo.dark}</a></li>
+          <li><a href="/images/logo-mark-dark.png">{press.logo.darkPng}</a></li>
+          <li><a href="/images/logo-mark-light.svg">{press.logo.light}</a></li>
+          <li><a href="/images/logo-mark-light.png">{press.logo.lightPng}</a></li>
+        </ul>
+      </section>
+
+      <section class="press-section" id="coverage" aria-labelledby="coverage-heading">
+        <h2 id="coverage-heading" class="section-title">{press.coverage.heading}</h2>
+        <p class="empty-note">{press.coverage.empty}</p>
+      </section>
+
+      <section class="press-section" id="quotes" aria-labelledby="quotes-heading">
+        <h2 id="quotes-heading" class="section-title">{press.quotes.heading}</h2>
+        <p class="empty-note">{press.quotes.empty}</p>
+      </section>
+
+      <section class="press-section" id="team" aria-labelledby="team-heading">
+        <h2 id="team-heading" class="section-title">{press.team.heading}</h2>
+        <div class="prose-block">
+          <p>Matthew Snodgrass — solo developer, Fallen Signal Studios.</p>
+          <p>Michael Vaylin Keyes — pen name. Author of the Sovereign Call novels.</p>
+          <p>{authorLine}</p>
+        </div>
+      </section>
+
+      <section class="press-section" id="legacy-demo" aria-labelledby="demo-heading">
+        <h2 id="demo-heading" class="section-title">{press.demo.heading}</h2>
+        <p>{press.demo.note}</p>
+      </section>
+
+      <section class="press-section" id="contact" aria-labelledby="contact-heading">
+        <h2 id="contact-heading" class="section-title">{press.contact.heading}</h2>
+        <p>
+          <a class="text-link" href={`mailto:${pressEmail}`}>{pressEmail}</a>
+        </p>
+      </section>
+    </div>
+  </main>
+</Base>

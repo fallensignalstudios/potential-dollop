@@ -1,0 +1,30 @@
+---
+import { footer, kofiUrl, nav, pressEmail, steamUrl, studio } from "../content/site";
+---
+
+<footer class="site-footer">
+  <div class="site-shell footer-content">
+    <div class="footer-meta">
+      <p>{studio}</p>
+      <!-- TODO: CONFIRM whether the copyright line should stay Matthew Snodgrass or use a Fallen Signal Studios legal entity. -->
+      <p>{footer.rights}</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a class="nav-link" href="/">{nav.game}</a>
+      <a class="nav-link" href="/book">{nav.novel}</a>
+      <a class="nav-link" href="/press">{nav.press}</a>
+      <a class="nav-link" href="/privacy">{nav.privacy}</a>
+      <a class="nav-link" href={steamUrl("footer_cta")} target="_blank" rel="noopener noreferrer">
+        {nav.wishlist}<span class="sr-only"> (opens in a new tab)</span>
+      </a>
+      <a class="nav-link" href={kofiUrl} target="_blank" rel="noopener noreferrer">
+        {footer.kofi}<span class="sr-only"> (opens in a new tab)</span>
+      </a>
+      <a class="nav-link" href={`mailto:${pressEmail}`}>{pressEmail}</a>
+      <a class="text-link" href="#main">{footer.back}</a>
+    </nav>
+  </div>
+  <!-- TODO: TikTok, YouTube, and X URLs were not on the captured site. Add them when Matthew supplies the URLs. -->
+  <!-- TODO: Discord stays off this site until a non-expiring invite exists. -->
+  <!-- Do not link the April 2026 legacy demo. -->
+</footer>

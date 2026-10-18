@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.astro/
+assets-src/
+.DS_Store
+lighthouse-*.json
+*.log

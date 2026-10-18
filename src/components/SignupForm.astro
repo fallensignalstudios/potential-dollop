@@ -1,0 +1,58 @@
+---
+import { resolveKitAction } from "../config";
+import { home } from "../content/site";
+
+const action = resolveKitAction();
+const copy = home.email;
+---
+
+<section class="section-space" id="signup" aria-labelledby="signup-heading">
+  <div class="site-shell signup-grid">
+    <div class="stack">
+      <p class="eyebrow">{copy.eyebrow}</p>
+      <h2 id="signup-heading" class="section-title">{copy.title}</h2>
+      <p class="lede">{copy.cadence}</p>
+    </div>
+    {
+      action ? (
+        <form class="signup-form" method="post" action={action}>
+          <input type="hidden" name="fields[source]" value="website" />
+          <label for="email">{copy.label}</label>
+          <div class="signup-row">
+            <input
+              id="email"
+              name="email_address"
+              type="email"
+              autocomplete="email"
+              inputmode="email"
+              required
+              placeholder="you@example.com"
+            />
+            <button class="btn btn-primary" type="submit">{copy.submit}</button>
+          </div>
+        </form>
+      ) : (
+        <form class="signup-form" method="post" action="#signup">
+          <!-- TODO: Paste the Kit form id or action into src/config.ts (kitFormAction). -->
+          <label for="email">{copy.label}</label>
+          <div class="signup-row">
+            <input
+              id="email"
+              name="email_address"
+              type="email"
+              autocomplete="email"
+              inputmode="email"
+              required
+              placeholder="you@example.com"
+              aria-describedby="signup-pending"
+            />
+            <button class="btn btn-primary" type="submit" disabled>
+              {copy.submit}
+            </button>
+          </div>
+          <p class="form-note" id="signup-pending">{copy.pending}</p>
+        </form>
+      )
+    }
+  </div>
+</section>
