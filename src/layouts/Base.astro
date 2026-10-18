@@ -7,6 +7,8 @@ import { siteName, siteUrl } from "../content/site";
 interface Props {
   title: string;
   description: string;
+  ogTitle?: string;
+  ogDescription?: string;
   ogImage: string;
   ogAlt: string;
   ogType?: string;
@@ -20,6 +22,8 @@ interface Props {
 const {
   title,
   description,
+  ogTitle = title,
+  ogDescription = description,
   ogImage,
   ogAlt,
   ogType = "website",
@@ -53,8 +57,8 @@ const json = jsonLd
     <meta name="color-scheme" content="dark" />
     <link rel="canonical" href={canonical} />
     {noindex && <meta name="robots" content="noindex" />}
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDescription} />
     <meta property="og:site_name" content={siteName} />
     <meta property="og:locale" content="en_US" />
     <meta property="og:url" content={canonical} />
@@ -64,8 +68,8 @@ const json = jsonLd
     <meta property="og:image:height" content={String(ogHeight)} />
     <meta property="og:image:alt" content={ogAlt} />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
+    <meta name="twitter:title" content={ogTitle} />
+    <meta name="twitter:description" content={ogDescription} />
     <meta name="twitter:image" content={imageUrl} />
     <meta name="twitter:image:alt" content={ogAlt} />
     <link rel="icon" href="/favicon.ico" sizes="any" />

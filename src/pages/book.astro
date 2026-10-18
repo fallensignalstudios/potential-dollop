@@ -4,6 +4,8 @@ import CoverImage from "../components/CoverImage.astro";
 import {
   amazonUrl,
   authorLine,
+  bookIntro,
+  bookMeta,
   bookPage as book,
   images,
   kofiUrl,
@@ -30,8 +32,10 @@ const jsonLd = {
 ---
 
 <Base
-  title={book.metaTitle}
-  description={book.metaDescription}
+  title={bookMeta.title}
+  description={bookMeta.description}
+  ogTitle={bookMeta.ogTitle}
+  ogDescription={bookMeta.ogDescription}
   ogImage={images.ogBook}
   ogAlt={images.ogBookAlt}
   ogType="book"
@@ -41,6 +45,16 @@ const jsonLd = {
   preloadCover
 >
   <main id="main" tabindex="-1">
+    <section class="section-space book-intro">
+      <div class="site-shell">
+        <p class="lede">
+          {bookIntro.body}
+          <a href={steamUrl("book_intro")} target="_blank" rel="noopener noreferrer">
+            {bookIntro.cta}<span class="sr-only"> (opens in a new tab)</span>
+          </a>
+        </p>
+      </div>
+    </section>
     <section class="book-hero" aria-labelledby="book-title">
       <div class="site-shell">
         <div class="hero-composition">

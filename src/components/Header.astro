@@ -3,10 +3,9 @@ import { nav, steamUrl } from "../content/site";
 
 const path = Astro.url.pathname;
 const items = [
-  { href: "/", label: nav.game, current: path === "/" },
+  { href: "/#game", label: nav.game, current: path === "/" },
   { href: "/book", label: nav.novel, current: path === "/book" },
   { href: "/press", label: nav.press, current: path === "/press" },
-  { href: "/#signup", label: nav.updates, current: false },
 ];
 const wishlist = steamUrl("nav");
 ---

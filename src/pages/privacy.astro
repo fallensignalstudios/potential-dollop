@@ -1,49 +1,70 @@
 ---
 import Base from "../layouts/Base.astro";
 import { images, pressEmail, privacy } from "../content/site";
+
+const kitPrivacy = "https://kit.com/privacy";
 ---
 
-<Base title={privacy.title} description={privacy.description} ogImage={images.ogHome} ogAlt={images.ogHomeAlt}>
+<Base
+  title={privacy.title}
+  description={privacy.description}
+  ogTitle={privacy.ogTitle}
+  ogDescription={privacy.ogDescription}
+  ogImage={images.ogHome}
+  ogAlt={images.ogHomeAlt}
+>
   <main id="main" tabindex="-1">
     <article class="site-shell page-intro section-space">
-      <p class="eyebrow">Legal</p>
       <h1 class="section-title">{privacy.h1}</h1>
+      <p class="muted">{privacy.updated}</p>
       <p class="review-banner">{privacy.review}</p>
       <div class="prose-block" style="margin-top: 2rem;">
-        <h2 class="serif" style="font-size: 2rem; font-weight: 500;">Who runs this site</h2>
-        <p>
-          This website is published by Fallen Signal Studios (Matthew Snodgrass) for Sovereign Call: Origins.
-          Press and privacy questions go to
-          <a class="text-link" href={`mailto:${pressEmail}`}>{pressEmail}</a>.
-        </p>
-        <h2 class="serif" style="font-size: 2rem; font-weight: 500;">Email signup</h2>
-        <p>
-          The dev-update form is provided by Kit (formerly ConvertKit). When you submit it, Kit receives the
-          email address you enter. The form also sends a source value, <code>website</code>, so signups from
-          this site can be told apart from other sources later.
-        </p>
-        <p>
-          Kit is the email provider. Their own privacy policy describes what their service records when a form
-          is submitted:
-          <a class="text-link" href="https://kit.com/privacy" target="_blank" rel="noopener noreferrer">
-            kit.com/privacy<span class="sr-only"> (opens in a new tab)</span>
-          </a>.
-        </p>
-        <p>
-          The form is meant to be double opt-in. After you subscribe you should get a confirmation email.
-          You are not on the list until you confirm.
-        </p>
-        <h2 class="serif" style="font-size: 2rem; font-weight: 500;">What this site does not do</h2>
-        <p>
-          These pages do not run an analytics script, advertising pixel, or account system. The only form is
-          the Kit signup.
-        </p>
-        <h2 class="serif" style="font-size: 2rem; font-weight: 500;">How to unsubscribe</h2>
-        <p>
-          Every update email includes an unsubscribe link. You can also email
-          <a class="text-link" href={`mailto:${pressEmail}`}>{pressEmail}</a>
-          and ask to be removed.
-        </p>
+        {
+          privacy.sections.map((section) => (
+            <section>
+              <h2 class="serif" style="font-size: 2rem; font-weight: 500;">
+                {section.heading}
+              </h2>
+              {section.paragraphs.map((paragraph) => {
+                if (paragraph.includes(pressEmail)) {
+                  const [before, after] = paragraph.split(pressEmail);
+                  return (
+                    <p>
+                      {before}
+                      <a class="text-link" href={`mailto:${pressEmail}`}>
+                        {pressEmail}
+                      </a>
+                      {after}
+                    </p>
+                  );
+                }
+                if (section.heading === "Email provider") {
+                  return (
+                    <p>
+                      {paragraph}{" "}
+                      <a class="text-link" href={kitPrivacy} target="_blank" rel="noopener noreferrer">
+                        Kit’s privacy policy<span class="sr-only"> (opens in a new tab)</span>
+                      </a>
+                      .
+                    </p>
+                  );
+                }
+                return <p>{paragraph}</p>;
+              })}
+              {"analytics" in section && section.analytics ? <p>{section.analytics}</p> : null}
+              {"todo" in section && section.todo ? (
+                <p>
+                  <span class="copy-todo">{section.todo}</span>
+                </p>
+              ) : null}
+              {"confirm" in section && section.confirm ? (
+                <p>
+                  <span class="copy-todo">{section.confirm}</span>
+                </p>
+              ) : null}
+            </section>
+          ))
+        }
       </div>
     </article>
   </main>

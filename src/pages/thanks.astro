@@ -3,11 +3,18 @@ import Base from "../layouts/Base.astro";
 import { images, steamUrl, thanks } from "../content/site";
 ---
 
-<Base title={thanks.title} description={thanks.description} ogImage={images.ogHome} ogAlt={images.ogHomeAlt}>
+<Base
+  title={thanks.title}
+  description={thanks.description}
+  ogTitle={thanks.title}
+  ogDescription={thanks.description}
+  ogImage={images.ogHome}
+  ogAlt={images.ogHomeAlt}
+  noindex
+>
   <main id="main" tabindex="-1">
     <section class="not-found">
       <div class="site-shell stack" style="align-items: center; text-align: center;">
-        <p class="eyebrow">{thanks.eyebrow}</p>
         <h1 class="section-title">{thanks.h1}</h1>
         <p class="lede">{thanks.body}</p>
         <a class="btn btn-primary" href={steamUrl("thanks")} target="_blank" rel="noopener noreferrer">
