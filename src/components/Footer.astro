@@ -10,9 +10,20 @@ import { footer, nav, pressEmail, steamUrl } from "../content/site";
         {footer.contactLabel}:
         <a href={`mailto:${pressEmail}`}>{pressEmail}</a>
       </p>
-      <ul class="footer-socials">
-        {footer.socials.map((line) => <li>{line}</li>)}
-      </ul>
+      <p>
+        Follow:{" "}
+        {
+          footer.socials.map((item, index) => (
+            <>
+              {index > 0 ? " · " : null}
+              <a class="text-link" href={item.href} target="_blank" rel="noopener noreferrer">
+                {item.label}
+                <span class="sr-only"> (opens in a new tab)</span>
+              </a>
+            </>
+          ))
+        }
+      </p>
       <p>{footer.rights}</p>
       <p>{footer.novelRights}</p>
     </div>
@@ -25,5 +36,5 @@ import { footer, nav, pressEmail, steamUrl } from "../content/site";
       <a class="nav-link" href="/privacy">{nav.privacy}</a>
     </nav>
   </div>
-  <!-- Do not link the April 2026 legacy demo. Ko-fi stays off the footer until Matthew decides on funding links. -->
+  <!-- Do not link the April 2026 legacy demo. -->
 </footer>

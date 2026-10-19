@@ -1,7 +1,7 @@
 /**
- * Marketing copy for the Phase 1 site (page copy v1).
- * The novel text lives in `book.json` and is not edited here.
- * Grep for `TODO(copy)` for every unfilled [TBD] and the email-frequency blank.
+ * Marketing copy for the Phase 1 site (page copy v2, Matthew's decisions of Oct 19).
+ * Novel excerpt, story, bio, tagline, and author quote live in `book.json` and stay as captured.
+ * Grep for `TODO(copy)` for every unfilled [TBD].
  */
 import book from "./book.json";
 
@@ -27,7 +27,11 @@ export const shortDescription = `${headline} ${steamShort}`;
 export const statusChip = "In development · PC (Steam) · Coming soon";
 
 export const amazonUrl = "https://www.amazon.com/dp/B0HDWRBZTT";
-export const kofiUrl = "https://ko-fi.com/sovereigncallorigins";
+
+export const socials = [
+  { label: "TikTok", href: "https://www.tiktok.com/@sovereigncall" },
+  { label: "Instagram", href: "https://www.instagram.com/_sovereigncall_" },
+] as const;
 
 export const steamAppId = "4032180";
 const steamStore =
@@ -101,7 +105,7 @@ export const home = {
   },
   companions: {
     title: "Companions and consequences",
-    body: "Fight alongside companions on each side of the war. Relationships carry consequences, and decisions change who stands with you.",
+    body: "Fight alongside companions on each side of the war: Lyessa with Tarrik, and Tharne and Lyric with Selene. Relationships carry consequences, and decisions change who stands with you.",
     confirm: '[CONFIRM: fair for the full game, not only the slice]',
   },
   eclipse: {
@@ -118,16 +122,14 @@ export const home = {
   },
   status: {
     title: "Where development stands",
-    body: "Sovereign Call: Origins is in active development. We're currently building the Aurelion mission, where Tarrik and Selene fight toward the same locked door from opposite sides of a war. Footage on this site comes from that work in progress.",
+    body: "Sovereign Call: Origins is in active development. We're currently building the Aurelion mission, where Tarrik and Selene fight toward the same locked door from opposite sides of a war. There's no gameplay footage on this site yet. As parts of the current build are ready, we'll share images from it here first. Nothing on this site comes from the old demo.",
     demo: "The demo released in April 2026 is an early prototype from an earlier iteration of the game and is not representative of the current game.",
     cta: "Wishlist on Steam",
   },
   email: {
     title: "Get development updates",
-    blurbLead:
-      "Follow the build of Sovereign Call: Origins: progress on the Aurelion mission, new footage, and news when playtests open. We'll email you",
-    frequency: 'TODO(copy): [FREQUENCY: Matthew to set honestly, e.g. "about once a month"]',
-    blurbTail: ", and you can unsubscribe anytime.",
+    blurb:
+      "Follow the build of Sovereign Call: Origins: progress on the Aurelion mission, new footage, and news when playtests open. We'll email you about once a month, and you can unsubscribe anytime.",
     confirm: '[CONFIRM: "news when playtests open" is the safe wording]',
     label: "Email address",
     firstName: "First name (optional)",
@@ -151,12 +153,10 @@ export const bookIntro = {
 };
 
 export const bookMeta = {
-  title: "Sovereign Call: Origins: An Epoch | A Novel by Michael Vaylin Keyes",
-  description:
-    "The novel behind the game. Read the opening chapter of Sovereign Call: Origins — An Epoch by Michael Vaylin Keyes, a story of contested legacy and the cost of conviction.",
-  ogTitle: "Sovereign Call: Origins — An Epoch",
-  ogDescription:
-    "Read the opening chapter of the novel behind Sovereign Call: Origins, by Michael Vaylin Keyes.",
+  title: book.metaTitle,
+  description: book.metaDescription,
+  ogTitle: book.ogTitle,
+  ogDescription: book.ogDescription,
 };
 
 export const press = {
@@ -184,7 +184,8 @@ export const press = {
       { term: "Languages", value: "", todo: "TODO(copy): [TBD]" },
       { term: "Website", value: "website" },
       { term: "Press contact", value: "email" },
-      { term: "Socials", value: "", todo: "TODO(copy): [TBD: same as the footer once confirmed]" },
+      { term: "Legal entity", value: "Fallen Signal Studios LLC" },
+      { term: "Socials", value: "socials" },
     ],
   },
   short: {
@@ -196,7 +197,7 @@ export const press = {
     paragraphs: [
       "Sovereign Call: Origins is a cinematic, single-player, third-person sci-fi action RPG in development in Unreal Engine 5: a story of political conflict, conquest, faith, loyalty and betrayal, and of the moral cost of power.",
       "Tarrik Walcur fights for the imperial Dominion, an empire of bronze, oxblood and amber. Selene Veyne fights for the technologically advanced Reformation, a world of navy, slate and blue-white precision. Players control both of them, one at a time, as their stories cross on opposite sides of the same conflict.",
-      "Each protagonist fights their own way: Tarrik guards and counters; Selene relies on precision and deflection. Combat is built around Echo, the game's signature resource, with classes, specializations and progression without grind. Companions fight alongside each protagonist, and relationships carry consequences [CONFIRM: same wording as the homepage]. Beneath the war, an organic horror called the Eclipse spreads its violet corruption, threatening Dominion and Reformation alike.",
+      "Each protagonist fights their own way: Tarrik guards and counters; Selene relies on precision and deflection. Combat is built around Echo, the game's signature resource, with classes, specializations and progression without grind. Lyessa fights alongside Tarrik; Tharne and Lyric fight alongside Selene. Relationships carry consequences, and decisions change who stands with you [CONFIRM: same flag as the homepage]. Beneath the war, an organic horror called the Eclipse spreads its violet corruption, threatening Dominion and Reformation alike.",
       "Sovereign Call is an original IP adapted from the novels of Michael Vaylin Keyes, the pen name of developer Matthew Snodgrass. Four novels have been developed, and Origins alone runs to roughly 196,000 words.",
       "The game is in active development. Current work focuses on the Aurelion mission. The demo released in April 2026 is an early prototype from an earlier iteration and is not representative of the current game.",
     ],
@@ -215,7 +216,7 @@ export const press = {
       "Key art (no text, plus a version with the logo). TODO(copy): [LINK: TBD]",
       "Screenshots (current Aurelion build only, 1920×1080+). TODO(copy): [LINK: TBD. Available once captured]",
       "Steam capsule art. TODO(copy): [LINK: TBD]",
-      "Trailer (YouTube embed + downloadable MP4). TODO(copy): [LINK: TBD. Once a current-build trailer exists]",
+      "Trailer (downloadable MP4). TODO(copy): [LINK: TBD. Once a current-build trailer exists]",
       "Novel cover. TODO(copy): [LINK: TBD]",
       "Developer photo. TODO(copy): [LINK: TBD. Only if Matthew wants one public]",
     ],
@@ -226,7 +227,7 @@ export const press = {
   },
   boilerplate: {
     heading: "Boilerplate",
-    body: "Fallen Signal Studios is the independent, founder-led studio of Matthew Snodgrass, who writes the Sovereign Call novels as Michael Vaylin Keyes. Its first game, Sovereign Call: Origins, is a cinematic single-player sci-fi action RPG in development in Unreal Engine 5 for PC (Steam). Learn more at sovereigncall.com.",
+    body: "Fallen Signal Studios LLC is the independent, founder-led studio of Matthew Snodgrass, who writes the Sovereign Call novels as Michael Vaylin Keyes. Its first game, Sovereign Call: Origins, is a cinematic single-player sci-fi action RPG in development in Unreal Engine 5 for PC (Steam). Learn more at sovereigncall.com. © 2026 Fallen Signal Studios LLC.",
   },
 };
 
@@ -236,16 +237,17 @@ export const privacy = {
   ogTitle: "Privacy Policy: Sovereign Call: Origins",
   ogDescription: "How sovereigncall.com handles email sign-ups and site data.",
   h1: "Privacy Policy",
-  updated: "Last updated: October 18, 2026",
+  updated: "Last updated: October 19, 2026",
   review:
     "Not legal advice. Matthew should generate the final text with a reputable privacy-policy generator, or have it reviewed, and must make sure it matches how Kit, Netlify and any analytics are actually configured.",
   sections: [
     {
       heading: "Who we are",
       paragraphs: [
+        "Site operator: Fallen Signal Studios LLC.",
         "Contact: fallensignalstudios@gmail.com.",
       ],
-      todo: "TODO(copy): [Matthew Snodgrass or Fallen Signal Studios, TBD]",
+      confirm: "[CONFIRM: the LLC is the operator, not just the copyright holder]",
     },
     {
       heading: "What we collect",
@@ -332,16 +334,10 @@ export const notFound = {
 export const footer = {
   name: "Sovereign Call: Origins",
   contactLabel: "Contact",
-  rights:
-    "TODO(copy): © 2026 [Matthew Snodgrass or Fallen Signal Studios, TBD]. All rights reserved.",
+  rights: "© 2026 Fallen Signal Studios LLC. All rights reserved.",
   novelRights:
     "TODO(copy): [CONFIRM: whether the novel text needs its own copyright line under the pen name]",
-  socials: [
-    "TODO(copy): TikTok [URL: CONFIRM] https://www.tiktok.com/@sovereigncall",
-    "TODO(copy): YouTube [URL: CONFIRM] https://www.youtube.com/@SovereignCallOrigins",
-    "TODO(copy): X [URL: CONFIRM] https://x.com/SovCallOrigins",
-    "TODO(copy): Discord [ONLY once a non-expiring invite exists: CONFIRM]",
-  ],
+  socials,
 };
 
 export const nav = {

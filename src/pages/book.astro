@@ -8,7 +8,6 @@ import {
   bookMeta,
   bookPage as book,
   images,
-  kofiUrl,
   siteUrl,
   steamUrl,
 } from "../content/site";
@@ -189,11 +188,8 @@ const jsonLd = {
             <a class="btn btn-primary" href={steamUrl("book_game")} target="_blank" rel="noopener noreferrer">
               Wishlist on Steam<span class="sr-only"> (opens in a new tab)</span>
             </a>
-            <a class="text-link" href={kofiUrl} target="_blank" rel="noopener noreferrer">
-              Support on Ko-fi<span class="sr-only"> (opens in a new tab)</span>
-            </a>
+            <a class="text-link" href="/#game">About the game</a>
           </div>
-          <p class="form-note" id="kofi-note">{book.kofiNote}</p>
         </div>
       </div>
     </section>

@@ -58,43 +58,40 @@ In the Kit form settings, after the account exists:
 
 - Turn on the confirmation email (double opt-in).
 - Set **Redirect to another page** to `https://sovereigncall.com/thanks`. That redirect is stored in Kit, not in this repo. Signups land on `/thanks` only after Kit is told to send them there.
-- The homepage form posts a hidden `fields[source]=source-home` and an optional `fields[first_name]`. Create a Kit custom field named `source` if you want that value stored. Tag the form `source-home`.
+- The homepage form posts a hidden `fields[source]=source-home` and an optional `fields[first_name]`. Create a Kit custom field named `source` if you want that value stored. Tag the form `source-home`. The signup says updates go out about once a month.
 
 ## Where the copy lives
 
-Marketing copy is page copy v1 in `src/content/site.ts`. The novel page text that moved over from the current site is in `src/content/book.json` and should stay intact. Grep for `TODO(copy)` for every unfilled blank. Bracketed `[CONFIRM]` flags are also left visible and are not filled in.
+Marketing copy is page copy v2 in `src/content/site.ts`. The novel excerpt, story, bio, tagline, and author quote in `src/content/book.json` stay as captured. Page copy v2 changed that file only for the page meta, the game-block body, and removal of the Ko-fi note. Grep for `TODO(copy)` for every unfilled blank. Bracketed `[CONFIRM]` flags are also left visible and are not filled in.
 
 ### TODO(copy)
 
 Visible on the site, all defined in `src/content/site.ts`:
 
-- Email frequency in the homepage signup blurb.
-- Press factsheet: release date (shown as “Coming soon” plus a blank), price, based in, languages, and socials.
+- Press factsheet: release date (shown as “Coming soon” plus a blank), price, based in, and languages.
 - Press history: AI-use line, left out until it matches the Steam AI content disclosure.
-- Press assets: logo pack, key art, screenshots, Steam capsule, trailer, novel cover, and developer photo. Each is an off-site `[LINK: TBD]`. Do not upload those files to Netlify.
-- Privacy: site operator, analytics tool (the page also says none is configured), and cookies.
-- Footer copyright holder.
+- Press assets: logo pack, key art, screenshots, Steam capsule, trailer, novel cover, and developer photo. Each is an off-site `[LINK: TBD]`. Do not upload those files to Netlify. The trailer line still names a YouTube embed because that is the wording of the blank.
+- Privacy: analytics tool (the page also says none is configured), and cookies. The cookie blank still names a YouTube embed.
 - Whether the novel text needs its own copyright line under the pen name.
-- Social URLs (TikTok, YouTube, X) and Discord. The candidate URLs are printed as text and are not links.
 
 Also still open:
 
 - `src/config.ts` Kit form action.
 - Homepage hero still uses the novel cover. An HTML comment marks it for key art or a current Aurelion-build capture. Do not use the April 2026 demo.
-- The homepage status section says footage on the site comes from the Aurelion build. There is no current-build footage yet.
+- Weapon and ability names stay off the marketing copy. The homepage combat section still carries that confirm flag.
 
 ## Pages
 
 | Path | Role |
 |---|---|
-| `/` | Game-first landing from page copy v1. `id="game"` is the protagonists section. `id="book"`, `id="excerpt"`, and `id="author"` stay on this page and point at `/book`. |
-| `/book` | The current novel page, unchanged in `book.json`, plus a short intro above the hero and author line Option A. |
+| `/` | Game-first landing from page copy v2. `id="game"` is the protagonists section. `id="book"`, `id="excerpt"`, and `id="author"` stay on this page and point at `/book`. |
+| `/book` | The captured novel page, plus a short intro above the hero and author line Option A. The game block links to Steam (`book_game`) and to `/#game`. |
 | `/press` | Factsheet, short and long descriptions, history, off-site asset list, contact, and boilerplate. Awards and quotes are omitted until they exist. |
 | `/privacy` | Outline for Matthew to replace with a generated policy. Review banner at the top. |
 | `/thanks` | Confirm-your-inbox, plus a wishlist button. `noindex`, and left out of the sitemap. |
 | `/404` | Branded, links home and to Steam. |
 
-Wishlist links go to Steam app `4032180` with `utm_source=website&utm_medium=owned&utm_campaign=site` and a placement in `utm_content` (`hero`, `status`, `footer_cta`, `nav`, `book_intro`, `book_game`, `press`, `thanks`, `404`). There is no link to the legacy demo.
+Wishlist links go to Steam app `4032180` with `utm_source=website&utm_medium=owned&utm_campaign=site` and a placement in `utm_content` (`hero`, `status`, `footer_cta`, `nav`, `book_intro`, `book_game`, `press`, `thanks`). The branded 404 also uses `404`. There is no link to the legacy demo. Footer socials are TikTok and Instagram only.
 
 Author line, on `/` and `/book`:
 
@@ -126,7 +123,7 @@ When Matthew approves the switch:
 
 Built with `npm run build` (Astro static, 6 pages, no JavaScript). `npm run check:links` resolved 92 internal references across `/`, `/book`, `/press`, `/privacy`, `/thanks`, and `/404`.
 
-Local Lighthouse 12.8 against the production build of `/` (headless Chrome, lab, not field data), after page copy v1:
+Local Lighthouse 12.8 against the production build of `/` (headless Chrome, lab, not field data), after page copy v2:
 
 | | Performance | Accessibility | Best practices | SEO | FCP | LCP | TBT | CLS | Weight |
 |---|---|---|---|---|---|---|---|---|---|
@@ -139,13 +136,11 @@ The previous homepage was about 2,228 KiB, most of it the 1.99 MB cover JPEG. Th
 
 These match the blanks left visible in the copy. Do not fill them in the repo until Matthew decides.
 
-1. Name companions (Lyessa, Tharne, Lyric) and weapons or abilities on the homepage? The page uses the no-names version.
+1. Name weapons and abilities on the homepage? Character and companion names are already public. The names themselves are not written into the marketing copy.
 2. Do “decisions change who stands with you” and the companion consequences hold for the full game?
 3. Eclipse line: “older than either power,” or “ancient Remnant environments”?
-4. Email frequency for the signup blurb.
-5. Copyright holder: Matthew Snodgrass or Fallen Signal Studios? Does the novel text need its own line under the pen name?
-6. Social URLs (TikTok, YouTube, X), and whether Discord appears. Candidate URLs are shown as text only.
-7. Press factsheet: based in, languages, price, and the release-date wording beyond “Coming soon.”
-8. AI-use line in the press history: include it in the Steam disclosure’s wording, or leave it out?
-9. Ko-fi in the shared footer? It is left out. The `/book` game block still has the Ko-fi link that was already in `book.json`.
-10. Privacy page is an outline. Replace it with a generated policy before go-live.
+4. Does the novel text on `/book` need its own copyright line under the pen name?
+5. Press factsheet: based in, languages, price, and the release-date wording beyond “Coming soon.”
+6. AI-use line in the press history: include it in the Steam disclosure’s wording, or leave it out?
+7. Privacy: confirm Fallen Signal Studios LLC is the site operator, not only the copyright holder. Replace the outline with a generated policy before go-live.
+8. Open the Instagram profile once in a logged-in browser. The footer and press kit already link `https://www.instagram.com/_sovereigncall_`.

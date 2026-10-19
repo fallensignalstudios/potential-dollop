@@ -1,6 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
-import { images, press, pressEmail, siteUrl, steamUrl } from "../content/site";
+import { images, press, pressEmail, siteUrl, socials, steamUrl } from "../content/site";
 
 const introParts = press.intro.split(pressEmail);
 ---
@@ -40,6 +40,17 @@ const introParts = press.intro.split(pressEmail);
                     </a>
                   ) : row.term === "Press contact" ? (
                     <a class="text-link" href={`mailto:${pressEmail}`}>{pressEmail}</a>
+                  ) : row.term === "Socials" ? (
+                    socials.map((item, index) => (
+                      <>
+                        {index > 0 ? " · " : null}
+                        {item.label}{" "}
+                        <a class="text-link" href={item.href} target="_blank" rel="noopener noreferrer">
+                          {item.href}
+                          <span class="sr-only"> (opens in a new tab)</span>
+                        </a>
+                      </>
+                    ))
                   ) : row.todo ? (
                     <>
                       {row.value ? <>{row.value} </> : null}
