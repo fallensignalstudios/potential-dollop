@@ -70,7 +70,7 @@ Visible on the site, all defined in `src/content/site.ts`:
 
 - Press factsheet: release date (shown as “Coming soon” plus a blank), price, based in, and languages.
 - Press history: AI-use line, left out until it matches the Steam AI content disclosure.
-- Press assets: logo pack, key art, screenshots, Steam capsule, trailer, novel cover, and developer photo. Each is an off-site `[LINK: TBD]`. Do not upload those files to Netlify. The trailer line still names a YouTube embed because that is the wording of the blank.
+- Press assets: logo pack, key art, screenshots, Steam capsule, trailer, novel cover, and developer photo. Each is an off-site `[LINK: TBD]`. Do not upload those files to Netlify. The trailer blank no longer says “YouTube embed.”
 - Privacy: analytics tool (the page also says none is configured), and cookies. The cookie blank still names a YouTube embed.
 - Whether the novel text needs its own copyright line under the pen name.
 
