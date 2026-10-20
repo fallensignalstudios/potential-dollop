@@ -69,7 +69,7 @@ await sharp(portraitPath)
   .avif({ quality: 45, effort: 6 })
   .toFile(path.join(imageDir, "portrait.avif"));
 
-execFileSync("python3", [path.join(root, "scripts", "render-brand.py")], {
+execFileSync("python3", [path.join(root, "scripts", "render-emblem.py")], {
   stdio: "inherit",
   cwd: root,
 });

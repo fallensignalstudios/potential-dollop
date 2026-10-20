@@ -215,9 +215,22 @@ a {
 
 .wordmark {
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.7rem;
+  text-decoration: none;
+}
+
+.wordmark-text {
+  display: flex;
   flex-direction: column;
   gap: 0.15rem;
-  text-decoration: none;
+}
+
+.wordmark-emblem {
+  height: 2.65rem;
+  width: auto;
+  flex-shrink: 0;
 }
 
 .wordmark-title {
@@ -838,6 +851,11 @@ a {
   place-items: center;
   text-align: center;
   padding-block: 5rem;
+}
+
+.not-found-emblem {
+  height: 4.5rem;
+  width: auto;
 }
 
 .not-found h1 {

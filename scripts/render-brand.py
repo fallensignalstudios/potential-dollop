@@ -95,5 +95,4 @@ def favicons() -> None:
 
 
 if __name__ == "__main__":
-    og_card()
-    favicons()
+    raise SystemExit("The home share image and favicons come from scripts/render-emblem.py.")
