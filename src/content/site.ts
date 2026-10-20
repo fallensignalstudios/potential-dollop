@@ -101,18 +101,14 @@ export const home = {
   combat: {
     title: "Skill-driven combat",
     body: "Each protagonist fights their own way. Tarrik guards and counters; Selene relies on precision and deflection. Both carry firearms and abilities of their own. Combat is built around Echo, the game's signature resource, with classes, specializations and progression without grind.",
-    confirm: "[CONFIRM: name them or not]",
   },
   companions: {
     title: "Companions and consequences",
     body: "Fight alongside companions on each side of the war: Lyessa with Tarrik, and Tharne and Lyric with Selene. Relationships carry consequences, and decisions change who stands with you.",
-    confirm: '[CONFIRM: fair for the full game, not only the slice]',
   },
   eclipse: {
     title: "The Eclipse",
     body: "Beneath the war, an organic horror spreads its violet corruption. The Eclipse threatens Dominion and Reformation alike, in ancient environments older than either power.",
-    confirm:
-      '[CONFIRM: "older than either power" is accurate. Otherwise use "in ancient Remnant environments"]',
   },
   novel: {
     title: "Adapted from the novel",
@@ -130,7 +126,6 @@ export const home = {
     title: "Get development updates",
     blurb:
       "Follow the build of Sovereign Call: Origins: progress on the Aurelion mission, new footage, and news when playtests open. We'll email you about once a month, and you can unsubscribe anytime.",
-    confirm: '[CONFIRM: "news when playtests open" is the safe wording]',
     label: "Email address",
     firstName: "First name (optional)",
     submit: "Sign up",
@@ -197,7 +192,7 @@ export const press = {
     paragraphs: [
       "Sovereign Call: Origins is a cinematic, single-player, third-person sci-fi action RPG in development in Unreal Engine 5: a story of political conflict, conquest, faith, loyalty and betrayal, and of the moral cost of power.",
       "Tarrik Walcur fights for the imperial Dominion, an empire of bronze, oxblood and amber. Selene Veyne fights for the technologically advanced Reformation, a world of navy, slate and blue-white precision. Players control both of them, one at a time, as their stories cross on opposite sides of the same conflict.",
-      "Each protagonist fights their own way: Tarrik guards and counters; Selene relies on precision and deflection. Combat is built around Echo, the game's signature resource, with classes, specializations and progression without grind. Lyessa fights alongside Tarrik; Tharne and Lyric fight alongside Selene. Relationships carry consequences, and decisions change who stands with you [CONFIRM: same flag as the homepage]. Beneath the war, an organic horror called the Eclipse spreads its violet corruption, threatening Dominion and Reformation alike.",
+      "Each protagonist fights their own way: Tarrik guards and counters; Selene relies on precision and deflection. Combat is built around Echo, the game's signature resource, with classes, specializations and progression without grind. Lyessa fights alongside Tarrik; Tharne and Lyric fight alongside Selene. Relationships carry consequences, and decisions change who stands with you. Beneath the war, an organic horror called the Eclipse spreads its violet corruption, threatening Dominion and Reformation alike.",
       "Sovereign Call is an original IP adapted from the novels of Michael Vaylin Keyes, the pen name of developer Matthew Snodgrass. Four novels have been developed, and Origins alone runs to roughly 196,000 words.",
       "The game is in active development. Current work focuses on the Aurelion mission. The demo released in April 2026 is an early prototype from an earlier iteration and is not representative of the current game.",
     ],
@@ -205,8 +200,6 @@ export const press = {
   history: {
     heading: "Development history",
     body: "Sovereign Call began as a novel. Matthew Snodgrass, writing as Michael Vaylin Keyes, developed the universe across four novels before adapting the first, Origins, into a game. He is building it as a solo, founder-led project in Unreal Engine 5, using his own Unreal tools: Cinemafy (cinematography), Holofy (hologram shader), Icify (procedural ice), Grungify (procedural grunge) and an Unreal MCP toolset.",
-    confirm:
-      "TODO(copy): [CONFIRM: add a line on AI-assisted programming and editor automation only in the exact wording used in the Steam AI content disclosure, or leave it out]",
   },
   assets: {
     heading: "Assets",
@@ -247,7 +240,6 @@ export const privacy = {
         "Site operator: Fallen Signal Studios LLC.",
         "Contact: fallensignalstudios@gmail.com.",
       ],
-      confirm: "[CONFIRM: the LLC is the operator, not just the copyright holder]",
     },
     {
       heading: "What we collect",
@@ -255,7 +247,6 @@ export const privacy = {
         "Email sign-up: email address and optional first name, given voluntarily.",
         "Hosting logs: Netlify may process technical data (for example IP address and browser) to serve and secure the site.",
       ],
-      confirm: "[CONFIRM against Netlify's docs]",
       todo: "TODO(copy): [TBD: name the tool if one is added. Otherwise say none]",
       analytics: "Analytics: none is configured on this site.",
     },
@@ -270,7 +261,6 @@ export const privacy = {
       paragraphs: [
         "Sign-ups are stored and sent by Kit, our email provider. The form is meant to be double opt-in.",
       ],
-      confirm: "[CONFIRM: tracking settings]",
     },
     {
       heading: "Legal basis / consent",
@@ -287,7 +277,6 @@ export const privacy = {
     {
       heading: "Retention",
       paragraphs: ["Kept until you unsubscribe or ask for deletion."],
-      confirm: "[CONFIRM]",
     },
     {
       heading: "Cookies",
@@ -301,7 +290,6 @@ export const privacy = {
     {
       heading: "Children",
       paragraphs: ["This site is not directed at children."],
-      confirm: "[CONFIRM: the age wording the generator recommends]",
     },
     {
       heading: "Changes",
@@ -335,8 +323,6 @@ export const footer = {
   name: "Sovereign Call: Origins",
   contactLabel: "Contact",
   rights: "© 2026 Fallen Signal Studios LLC. All rights reserved.",
-  novelRights:
-    "TODO(copy): [CONFIRM: whether the novel text needs its own copyright line under the pen name]",
   socials,
 };
 

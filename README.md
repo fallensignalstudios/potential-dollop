@@ -62,23 +62,20 @@ In the Kit form settings, after the account exists:
 
 ## Where the copy lives
 
-Marketing copy is page copy v2 in `src/content/site.ts`. The novel excerpt, story, bio, tagline, and author quote in `src/content/book.json` stay as captured. Page copy v2 changed that file only for the page meta, the game-block body, and removal of the Ko-fi note. Grep for `TODO(copy)` for every unfilled blank. Bracketed `[CONFIRM]` flags are also left visible and are not filled in.
+Marketing copy is page copy v2 in `src/content/site.ts`. The novel excerpt, story, bio, tagline, and author quote in `src/content/book.json` stay as captured. Page copy v2 changed that file only for the page meta, the game-block body, and removal of the Ko-fi note. Grep for `TODO(copy)` for every unfilled blank. Matthew approved the former confirm flags on October 20, 2026, and those markers are no longer on the site.
 
 ### TODO(copy)
 
 Visible on the site, all defined in `src/content/site.ts`:
 
 - Press factsheet: release date (shown as “Coming soon” plus a blank), price, based in, and languages.
-- Press history: AI-use line, left out until it matches the Steam AI content disclosure.
 - Press assets: logo pack, key art, screenshots, Steam capsule, trailer, novel cover, and developer photo. Each is an off-site `[LINK: TBD]`. Do not upload those files to Netlify. The trailer blank no longer says “YouTube embed.”
 - Privacy: analytics tool (the page also says none is configured), and cookies. The cookie blank still names a YouTube embed.
-- Whether the novel text needs its own copyright line under the pen name.
 
 Also still open:
 
 - `src/config.ts` Kit form action.
 - Homepage hero still uses the novel cover. An HTML comment marks it for key art or a current Aurelion-build capture. Do not use the April 2026 demo.
-- Weapon and ability names stay off the marketing copy. The homepage combat section still carries that confirm flag.
 
 ## Pages
 
@@ -136,11 +133,6 @@ The previous homepage was about 2,228 KiB, most of it the 1.99 MB cover JPEG. Th
 
 These match the blanks left visible in the copy. Do not fill them in the repo until Matthew decides.
 
-1. Name weapons and abilities on the homepage? Character and companion names are already public. The names themselves are not written into the marketing copy.
-2. Do “decisions change who stands with you” and the companion consequences hold for the full game?
-3. Eclipse line: “older than either power,” or “ancient Remnant environments”?
-4. Does the novel text on `/book` need its own copyright line under the pen name?
-5. Press factsheet: based in, languages, price, and the release-date wording beyond “Coming soon.”
-6. AI-use line in the press history: include it in the Steam disclosure’s wording, or leave it out?
-7. Privacy: confirm Fallen Signal Studios LLC is the site operator, not only the copyright holder. Replace the outline with a generated policy before go-live.
-8. Open the Instagram profile once in a logged-in browser. The footer and press kit already link `https://www.instagram.com/_sovereigncall_`.
+1. Press factsheet: based in, languages, price, and the release-date wording beyond “Coming soon.”
+2. Privacy page is still an outline. Replace it with a generated policy before go-live. Analytics and cookies are the remaining blanks.
+3. Open the Instagram profile once in a logged-in browser. The footer and press kit already link `https://www.instagram.com/_sovereigncall_`.
