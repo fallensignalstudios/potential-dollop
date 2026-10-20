@@ -1,0 +1,67 @@
+---
+import { resolveKitAction } from "../config";
+import { home } from "../content/site";
+
+const action = resolveKitAction();
+const copy = home.email;
+---
+
+<section class="section-space" id="updates" aria-labelledby="updates-heading">
+  <div class="site-shell signup-grid">
+    <div class="stack">
+      <h2 id="updates-heading" class="section-title">{copy.title}</h2>
+      <p class="lede">{copy.blurb}</p>
+    </div>
+    {
+      action ? (
+        <form class="signup-form" method="post" action={action}>
+          <input type="hidden" name="fields[source]" value={copy.source} />
+          <label for="first-name">{copy.firstName}</label>
+          <input id="first-name" name="fields[first_name]" type="text" autocomplete="given-name" />
+          <label for="email">{copy.label}</label>
+          <div class="signup-row">
+            <input
+              id="email"
+              name="email_address"
+              type="email"
+              autocomplete="email"
+              inputmode="email"
+              required
+              placeholder="you@example.com"
+            />
+            <button class="btn btn-primary" type="submit">{copy.submit}</button>
+          </div>
+          <p class="form-note">
+            {copy.finePrint} <a href="/privacy">{copy.privacyLabel}</a>.
+          </p>
+        </form>
+      ) : (
+        <form class="signup-form" method="post" action="#updates">
+          <!-- TODO: Paste the Kit form id or action into src/config.ts (kitFormAction). Tag this form source-home. -->
+          <label for="first-name">{copy.firstName}</label>
+          <input id="first-name" name="fields[first_name]" type="text" autocomplete="given-name" />
+          <label for="email">{copy.label}</label>
+          <div class="signup-row">
+            <input
+              id="email"
+              name="email_address"
+              type="email"
+              autocomplete="email"
+              inputmode="email"
+              required
+              placeholder="you@example.com"
+              aria-describedby="signup-pending"
+            />
+            <button class="btn btn-primary" type="submit" disabled>
+              {copy.submit}
+            </button>
+          </div>
+          <p class="form-note" id="signup-pending">{copy.pending}</p>
+          <p class="form-note">
+            {copy.finePrint} <a href="/privacy">{copy.privacyLabel}</a>.
+          </p>
+        </form>
+      )
+    }
+  </div>
+</section>

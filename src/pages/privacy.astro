@@ -1,0 +1,66 @@
+---
+import Base from "../layouts/Base.astro";
+import { images, pressEmail, privacy } from "../content/site";
+
+const kitPrivacy = "https://kit.com/privacy";
+---
+
+<Base
+  title={privacy.title}
+  description={privacy.description}
+  ogTitle={privacy.ogTitle}
+  ogDescription={privacy.ogDescription}
+  ogImage={images.ogHome}
+  ogAlt={images.ogHomeAlt}
+>
+  <main id="main" tabindex="-1">
+    <article class="site-shell page-intro section-space">
+      <h1 class="section-title">{privacy.h1}</h1>
+      <p class="muted">{privacy.updated}</p>
+      <p class="review-banner">{privacy.review}</p>
+      <div class="prose-block" style="margin-top: 2rem;">
+        {
+          privacy.sections.map((section) => (
+            <section>
+              <h2 class="serif" style="font-size: 2rem; font-weight: 500;">
+                {section.heading}
+              </h2>
+              {section.paragraphs.map((paragraph) => {
+                if (paragraph.includes(pressEmail)) {
+                  const [before, after] = paragraph.split(pressEmail);
+                  return (
+                    <p>
+                      {before}
+                      <a class="text-link" href={`mailto:${pressEmail}`}>
+                        {pressEmail}
+                      </a>
+                      {after}
+                    </p>
+                  );
+                }
+                if (section.heading === "Email provider") {
+                  return (
+                    <p>
+                      {paragraph}{" "}
+                      <a class="text-link" href={kitPrivacy} target="_blank" rel="noopener noreferrer">
+                        Kit’s privacy policy<span class="sr-only"> (opens in a new tab)</span>
+                      </a>
+                      .
+                    </p>
+                  );
+                }
+                return <p>{paragraph}</p>;
+              })}
+              {"analytics" in section && section.analytics ? <p>{section.analytics}</p> : null}
+              {"todo" in section && section.todo ? (
+                <p>
+                  <span class="copy-todo">{section.todo}</span>
+                </p>
+              ) : null}
+            </section>
+          ))
+        }
+      </div>
+    </article>
+  </main>
+</Base>

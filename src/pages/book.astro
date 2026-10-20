@@ -1,0 +1,197 @@
+---
+import Base from "../layouts/Base.astro";
+import CoverImage from "../components/CoverImage.astro";
+import {
+  amazonUrl,
+  authorLine,
+  bookIntro,
+  bookMeta,
+  bookPage as book,
+  images,
+  siteUrl,
+  steamUrl,
+} from "../content/site";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Book",
+  name: "Sovereign Call: Origins",
+  alternativeHeadline: "An Epoch",
+  author: {
+    "@type": "Person",
+    name: "Michael Vaylin Keyes",
+    alternateName: "Matthew Snodgrass",
+  },
+  image: new URL(images.ogBook, siteUrl).href,
+  description: book.metaDescription,
+  inLanguage: "en",
+  url: `${siteUrl}/book`,
+  sameAs: amazonUrl,
+};
+---
+
+<Base
+  title={bookMeta.title}
+  description={bookMeta.description}
+  ogTitle={bookMeta.ogTitle}
+  ogDescription={bookMeta.ogDescription}
+  ogImage={images.ogBook}
+  ogAlt={images.ogBookAlt}
+  ogType="book"
+  ogWidth={images.cover.width}
+  ogHeight={images.cover.height}
+  jsonLd={jsonLd}
+  preloadCover
+>
+  <main id="main" tabindex="-1">
+    <section class="section-space book-intro">
+      <div class="site-shell">
+        <p class="lede">
+          {bookIntro.body}
+          <a href={steamUrl("book_intro")} target="_blank" rel="noopener noreferrer">
+            {bookIntro.cta}<span class="sr-only"> (opens in a new tab)</span>
+          </a>
+        </p>
+      </div>
+    </section>
+    <section class="book-hero" aria-labelledby="book-title">
+      <div class="site-shell">
+        <div class="hero-composition">
+          <div class="stack hero-copy">
+            <p class="eyebrow">{book.eyebrow}</p>
+            <h1 id="book-title" class="hero-title">
+              <span>Sovereign</span><span class="sr-only"> </span>
+              <span>Call</span><span class="sr-only">: </span>
+              <span class="hero-origins">Origins</span>
+            </h1>
+            <p class="hero-deck">{book.epoch}</p>
+            <p class="lede">{book.tagline}</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href={amazonUrl} target="_blank" rel="noopener noreferrer">
+                Buy on Amazon<span class="sr-only"> (opens in a new tab)</span>
+              </a>
+              <a class="text-link" href="#excerpt">Read an excerpt</a>
+            </div>
+          </div>
+          <CoverImage class="hero-cover" priority />
+        </div>
+        <div class="hero-footnote">
+          <p>{book.footnote}</p>
+          <a class="text-link" href="#book">{book.discover}</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-space" id="book" aria-labelledby="about-book-heading">
+      <div class="site-shell book-overview">
+        <div class="stack">
+          <p class="eyebrow">{book.storyEyebrow}</p>
+          <h2 id="about-book-heading" class="section-title">
+            {book.storyTitle[0]}<br />
+            {book.storyTitle[1]}<br />
+            <span class="gold italic">{book.storyTitle[2]}</span>
+          </h2>
+          <p class="muted" style="max-width: 18rem;">{book.storyDeck}</p>
+        </div>
+        <div class="stack">
+          <p class="serif" style="font-size: clamp(1.5rem, 2vw, 1.85rem); line-height: 1.45;">{book.story[0]}</p>
+          {book.story.slice(1).map((paragraph) => <p class="lede">{paragraph}</p>)}
+          <p class="muted">{book.step}</p>
+          <a class="text-link" href="#excerpt">{book.readExcerpt}</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="excerpt-section" id="excerpt" aria-labelledby="excerpt-heading">
+      <div class="site-shell">
+        <div class="excerpt-intro">
+          <div class="stack">
+            <p class="eyebrow">{book.excerptEyebrow}</p>
+            <h2 id="excerpt-heading" class="section-title">{book.excerptTitle}</h2>
+          </div>
+          <p class="muted" style="max-width: 18rem;">
+            {book.excerptIntro[0]}<br />
+            {book.excerptIntro[1]}
+          </p>
+        </div>
+        <article class="reading-paper" aria-labelledby="chapter-title">
+          <div class="reading-measure">
+            <header class="chapter-header">
+              <p class="chapter-kicker">{book.chapterKicker}</p>
+              <h3 id="chapter-title">{book.chapterTitle}</h3>
+              <p class="serif italic">{book.chapterFrom}</p>
+            </header>
+            <div class="excerpt-prose">
+              {book.excerpt.map((paragraph) => <p>{paragraph}</p>)}
+            </div>
+            <footer class="excerpt-end">
+              <p class="kicker">{book.endKicker}</p>
+              <p class="await">{book.endLine}</p>
+              <a class="btn btn-primary" href={amazonUrl} target="_blank" rel="noopener noreferrer">
+                Continue on Amazon<span class="sr-only"> (opens in a new tab)</span>
+              </a>
+            </footer>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-space" id="author" aria-labelledby="author-heading">
+      <div class="site-shell author-composition">
+        <figure class="author-portrait">
+          <picture>
+            <source type="image/avif" srcset={images.portrait.avif} />
+            <img
+              src={images.portrait.src}
+              alt={images.portrait.alt}
+              width={images.portrait.width}
+              height={images.portrait.height}
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
+          <figcaption>{book.authorCaption}</figcaption>
+        </figure>
+        <div class="stack">
+          <p class="eyebrow">{book.authorEyebrow}</p>
+          <h2 id="author-heading" class="section-title">{book.authorName}</h2>
+          {book.bio.map((paragraph) => <p class="lede">{paragraph}</p>)}
+          <p>{authorLine}</p>
+          <hr class="rule" />
+          <p class="author-quote">{book.authorQuote}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing-section" aria-labelledby="closing-heading">
+      <div class="site-shell closing-content">
+        <p class="eyebrow">{book.closingEyebrow}</p>
+        <h2 id="closing-heading" class="closing-title">
+          Sovereign Call:<br /><span class="gold italic">Origins</span>
+        </h2>
+        <p class="hero-deck">{book.closingBy}</p>
+        <a class="btn btn-primary" href={amazonUrl} target="_blank" rel="noopener noreferrer">
+          Buy on Amazon<span class="sr-only"> (opens in a new tab)</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="section-space" aria-labelledby="game-heading">
+      <div class="site-shell game-composition">
+        <div class="stack">
+          <p class="eyebrow">{book.gameEyebrow}</p>
+          <h2 id="game-heading" class="section-title">{book.gameTitle}</h2>
+        </div>
+        <div class="stack">
+          <p class="lede">{book.gameBody}</p>
+          <div class="cluster">
+            <a class="btn btn-primary" href={steamUrl("book_game")} target="_blank" rel="noopener noreferrer">
+              Wishlist on Steam<span class="sr-only"> (opens in a new tab)</span>
+            </a>
+            <a class="text-link" href="/#game">About the game</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Base>

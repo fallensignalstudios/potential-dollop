@@ -1,0 +1,31 @@
+---
+import { images } from "../content/site";
+
+interface Props {
+  priority?: boolean;
+  sizes?: string;
+  class?: string;
+}
+
+const {
+  priority = false,
+  sizes = "(min-width: 48rem) 370px, 76vw",
+  class: className,
+} = Astro.props;
+const cover = images.cover;
+---
+
+<picture class={className}>
+  <source type="image/avif" srcset={cover.avif} sizes={sizes} />
+  <source type="image/webp" srcset={cover.webp} sizes={sizes} />
+  <img
+    src={cover.src}
+    alt={cover.alt}
+    width={cover.width}
+    height={cover.height}
+    sizes={sizes}
+    loading={priority ? "eager" : "lazy"}
+    decoding="async"
+    fetchpriority={priority ? "high" : "auto"}
+  />
+</picture>

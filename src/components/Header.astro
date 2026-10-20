@@ -1,0 +1,48 @@
+---
+import { nav, steamUrl } from "../content/site";
+
+const path = Astro.url.pathname;
+const items = [
+  { href: "/#game", label: nav.game, current: path === "/" },
+  { href: "/book", label: nav.novel, current: path === "/book" },
+  { href: "/press", label: nav.press, current: path === "/press" },
+];
+const wishlist = steamUrl("nav");
+---
+
+<header class="site-header">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="site-shell header-bar">
+    <a class="wordmark" href="/">
+      <span class="wordmark-title">Sovereign Call</span>
+      <span class="wordmark-sub">Origins</span>
+    </a>
+    <nav class="nav-desktop" aria-label="Primary">
+      {
+        items.map((item) => (
+          <a class="nav-link" href={item.href} aria-current={item.current ? "page" : undefined}>
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn-primary" href={wishlist} target="_blank" rel="noopener noreferrer">
+        {nav.wishlist}
+        <span class="sr-only"> (opens in a new tab)</span>
+      </a>
+      <details class="nav-toggle">
+        <summary>Menu</summary>
+        <nav class="nav-panel" aria-label="Mobile">
+          {
+            items.map((item) => (
+              <a class="nav-link" href={item.href} aria-current={item.current ? "page" : undefined}>
+                {item.label}
+              </a>
+            ))
+          }
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>

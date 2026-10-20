@@ -1,0 +1,39 @@
+---
+import { footer, nav, pressEmail, steamUrl } from "../content/site";
+---
+
+<footer class="site-footer">
+  <div class="site-shell footer-content">
+    <div class="footer-meta">
+      <p>{footer.name}</p>
+      <p>
+        {footer.contactLabel}:
+        <a href={`mailto:${pressEmail}`}>{pressEmail}</a>
+      </p>
+      <p>
+        Follow:{" "}
+        {
+          footer.socials.map((item, index) => (
+            <>
+              {index > 0 ? " · " : null}
+              <a class="text-link" href={item.href} target="_blank" rel="noopener noreferrer">
+                {item.label}
+                <span class="sr-only"> (opens in a new tab)</span>
+              </a>
+            </>
+          ))
+        }
+      </p>
+      <p>{footer.rights}</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a class="nav-link" href={steamUrl("footer_cta")} target="_blank" rel="noopener noreferrer">
+        {nav.wishlist}<span class="sr-only"> (opens in a new tab)</span>
+      </a>
+      <a class="nav-link" href="/book">{nav.novel}</a>
+      <a class="nav-link" href="/press">{nav.press}</a>
+      <a class="nav-link" href="/privacy">{nav.privacy}</a>
+    </nav>
+  </div>
+  <!-- Do not link the April 2026 legacy demo. -->
+</footer>

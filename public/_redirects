@@ -1,0 +1,12 @@
+# Apex is canonical. www must also be attached to the Netlify site
+# before this host redirect can run. See README, DNS cutover.
+https://www.sovereigncall.com/*  https://sovereigncall.com/:splat  301!
+/presskit     /press   301
+/presskit/    /press   301
+/press-kit    /press   301
+/press-kit/   /press   301
+/index.html   /        301
+/book.html    /book    301
+/press.html   /press   301
+/privacy.html /privacy 301
+/thanks.html  /thanks  301

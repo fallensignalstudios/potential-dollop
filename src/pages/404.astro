@@ -1,0 +1,27 @@
+---
+import Base from "../layouts/Base.astro";
+import { images, notFound, steamUrl } from "../content/site";
+---
+
+<Base
+  title={notFound.title}
+  description={notFound.description}
+  ogImage={images.ogHome}
+  ogAlt={images.ogHomeAlt}
+  noindex
+>
+  <main id="main" tabindex="-1">
+    <section class="not-found">
+      <div class="site-shell stack" style="align-items: center;">
+        <h1>{notFound.h1}</h1>
+        <p class="lede">{notFound.body}</p>
+        <div class="cluster">
+          <a class="btn btn-primary" href="/">{notFound.home}</a>
+          <a class="text-link" href={steamUrl("404")} target="_blank" rel="noopener noreferrer">
+            {notFound.steam}<span class="sr-only"> (opens in a new tab)</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Base>
