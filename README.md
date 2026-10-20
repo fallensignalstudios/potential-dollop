@@ -21,7 +21,9 @@ npm run check:links    # internal links in dist/ must resolve
 npm run preview        # serve the production build
 ```
 
-`npm run images` re-downloads the novel cover and author portrait from the current site and regenerates the AVIF, WebP, JPEG, Open Graph card, and favicon set. The optimized files are already committed, so a normal build does not need this. The original 1.99 MB cover JPEG is not committed.
+`npm run images` re-downloads the novel cover and author portrait from the current site and regenerates the AVIF, WebP, and JPEG derivatives. The optimized files are already committed, so a normal build does not need this. The original 1.99 MB cover JPEG is not committed.
+
+The official emblem source is `public/press/emblem.png`. Leave that file as it was delivered. `scripts/render-emblem.py` writes the transparent SVG, the favicon set, and the home share image from it.
 
 ## Netlify
 
@@ -118,14 +120,14 @@ When Matthew approves the switch:
 
 ## Verification
 
-Built with `npm run build` (Astro static, 6 pages, no JavaScript). `npm run check:links` resolved 92 internal references across `/`, `/book`, `/press`, `/privacy`, `/thanks`, and `/404`.
+Built with `npm run build` (Astro static, 6 pages, no JavaScript). `npm run check:links` resolved 111 internal references across `/`, `/book`, `/press`, `/privacy`, `/thanks`, and `/404`.
 
-Local Lighthouse 12.8 against the production build of `/` (headless Chrome, lab, not field data), after page copy v2:
+Local Lighthouse 12.8 against the production build of `/` (headless Chrome, lab, not field data), after the official emblem:
 
 | | Performance | Accessibility | Best practices | SEO | FCP | LCP | TBT | CLS | Weight |
 |---|---|---|---|---|---|---|---|---|---|
-| Mobile | 100 | 100 | 100 | 100 | 1.1 s | 1.7 s | 0 ms | 0 | 150 KiB |
-| Desktop | 100 | 100 | 100 | 100 | 0.3 s | 0.4 s | 0 ms | 0 | 127 KiB |
+| Mobile | 100 | 100 | 100 | 100 | 1.1 s | 1.7 s | 0 ms | 0 | 152 KiB |
+| Desktop | 100 | 100 | 100 | 100 | 0.3 s | 0.4 s | 0 ms | 0 | 130 KiB |
 
 The previous homepage was about 2,228 KiB, most of it the 1.99 MB cover JPEG. The new cover is 22 KB AVIF at 800 px wide and 11 KB at 480 px wide. CSS is about 13 KB. Fonts are latin subsets of Geist and Cormorant Garamond (SIL Open Font License, notices in `public/fonts/`).
 

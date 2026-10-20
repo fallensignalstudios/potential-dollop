@@ -64,8 +64,7 @@ export const images = {
     avif: "/images/portrait.avif",
   },
   ogHome: "/og/home.jpg",
-  ogHomeAlt:
-    "Sovereign Call: Origins. Two armored figures, black and gold. In development for PC on Steam.",
+  ogHomeAlt: "Sovereign Call emblem beside the title Sovereign Call: Origins.",
   ogBook: "/og/book.jpg",
   ogBookAlt: book.coverAlt,
 };
@@ -203,6 +202,12 @@ export const press = {
   },
   assets: {
     heading: "Assets",
+    emblem: {
+      png: "/press/emblem.png",
+      svg: "/press/emblem.svg",
+      pngLabel: "Sovereign Call emblem, PNG",
+      svgLabel: "Sovereign Call emblem, SVG",
+    },
     note: "Please don't use footage or screenshots from the April 2026 demo; it's an early prototype and not representative of the current game.",
     items: [
       "Logo pack (PNG transparent + SVG, light/dark). TODO(copy): [LINK: off-site host, TBD]",

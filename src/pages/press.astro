@@ -87,6 +87,14 @@ const introParts = press.intro.split(pressEmail);
 
       <section class="press-section" id="assets" aria-labelledby="assets-heading">
         <h2 id="assets-heading" class="section-title">{press.assets.heading}</h2>
+        <ul class="download-list">
+          <li>
+            <a class="text-link" href={press.assets.emblem.png}>{press.assets.emblem.pngLabel}</a>
+          </li>
+          <li>
+            <a class="text-link" href={press.assets.emblem.svg}>{press.assets.emblem.svgLabel}</a>
+          </li>
+        </ul>
         <p>{press.assets.note}</p>
         <ul class="download-list">
           {press.assets.items.map((item) => <li><span class="copy-todo">{item}</span></li>)}
