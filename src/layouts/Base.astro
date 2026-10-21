@@ -15,6 +15,8 @@ interface Props {
   ogWidth?: number;
   ogHeight?: number;
   noindex?: boolean;
+  robots?: string;
+  hideChrome?: boolean;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
   preloadCover?: boolean;
 }
@@ -30,9 +32,13 @@ const {
   ogWidth = 1200,
   ogHeight = 630,
   noindex = false,
+  robots,
+  hideChrome = false,
   jsonLd,
   preloadCover = false,
 } = Astro.props;
+
+const robotsContent = robots ?? (noindex ? "noindex" : "");
 
 const requestPath = Astro.url.pathname;
 const canonicalPath =
@@ -56,7 +62,7 @@ const json = jsonLd
     <meta name="theme-color" content="#101113" />
     <meta name="color-scheme" content="dark" />
     <link rel="canonical" href={canonical} />
-    {noindex && <meta name="robots" content="noindex" />}
+    {robotsContent && <meta name="robots" content={robotsContent} />}
     <meta property="og:title" content={ogTitle} />
     <meta property="og:description" content={ogDescription} />
     <meta property="og:site_name" content={siteName} />
@@ -95,8 +101,8 @@ const json = jsonLd
     {json && <script type="application/ld+json" set:html={json} />}
   </head>
   <body>
-    <Header />
+    {!hideChrome && <Header />}
     <slot />
-    <Footer />
+    {!hideChrome && <Footer />}
   </body>
 </html>

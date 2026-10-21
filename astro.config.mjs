@@ -9,7 +9,8 @@ export default defineConfig({
   },
   integrations: [
     sitemap({
-      filter: (page) => !page.endsWith("/404") && !page.endsWith("/thanks"),
+      filter: (page) =>
+        !page.endsWith("/404") && !page.endsWith("/thanks") && !page.endsWith("/links"),
     }),
   ],
 });
