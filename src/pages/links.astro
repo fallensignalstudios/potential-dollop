@@ -1,0 +1,66 @@
+---
+import Base from "../layouts/Base.astro";
+import {
+  amazonUrl,
+  footer,
+  headline,
+  home,
+  images,
+  pressEmail,
+  siteName,
+  socials,
+  steamUrl,
+} from "../content/site";
+
+const links = [
+  { href: steamUrl("links"), label: home.hero.primary, external: true, primary: true },
+  { href: "/#updates", label: home.hero.secondary, external: false, primary: false },
+  { href: "/book", label: "Read the novel", external: false, primary: false },
+  { href: amazonUrl, label: "Buy on Amazon", external: true, primary: false },
+  { href: socials[0].href, label: socials[0].label, external: true, primary: false },
+  { href: socials[1].href, label: socials[1].label, external: true, primary: false },
+  { href: "/press", label: "Press kit", external: false, primary: false },
+  { href: `mailto:${pressEmail}`, label: footer.contactLabel, external: false, primary: false },
+  { href: "/", label: "Main website", external: false, primary: false },
+];
+---
+
+<Base
+  title={siteName}
+  description={headline}
+  ogTitle={home.ogTitle}
+  ogDescription={home.ogDescription}
+  ogImage={images.ogHome}
+  ogAlt={images.ogHomeAlt}
+  robots="noindex, follow"
+  hideChrome
+>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <main id="main" class="links-page" tabindex="-1">
+    <div class="links-column">
+      <img class="links-emblem" src="/press/emblem.svg" alt="Sovereign Call emblem" width="68" height="84" />
+      <h1>{siteName}</h1>
+      <p class="links-tagline">{headline}</p>
+      <nav aria-label="Links">
+        <ul class="links-list">
+          {
+            links.map((item) => (
+              <li>
+                <a
+                  class:list={["btn", item.primary ? "btn-primary" : "links-btn"]}
+                  href={item.href}
+                  target={item.external ? "_blank" : undefined}
+                  rel={item.external ? "noopener noreferrer" : undefined}
+                >
+                  {item.label}
+                  {item.external && <span class="sr-only"> (opens in a new tab)</span>}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+      <p class="links-rights">{footer.rights}</p>
+    </div>
+  </main>
+</Base>
