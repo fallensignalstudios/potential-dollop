@@ -175,7 +175,7 @@ export const press = {
       { term: "Release date", value: "Coming soon" },
       { term: "Price", value: "$49.99 USD" },
       { term: "Based in", value: "Spokane, Washington" },
-      { term: "Languages", value: "", todo: "TODO(copy): [TBD]" },
+      { term: "Languages", value: "English" },
       { term: "Website", value: "website" },
       { term: "Press contact", value: "email" },
       { term: "Legal entity", value: "Fallen Signal Studios LLC" },
