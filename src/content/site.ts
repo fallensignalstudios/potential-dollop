@@ -209,8 +209,47 @@ export const press = {
       svgLabel: "Sovereign Call emblem, SVG",
     },
     note: "Please don't use footage or screenshots from the April 2026 demo; it's an early prototype and not representative of the current game.",
+    logoPack: {
+      zip: "/press/logo-pack/logo-pack.zip",
+      files: [
+        {
+          href: "/press/logo-pack/lockup-emblem-wordmark-grey.png",
+          thumb: "/press/logo-pack/thumbs/lockup-emblem-wordmark-grey.webp",
+          label: "Emblem and wordmark on grey",
+          width: 480,
+          height: 224,
+        },
+        {
+          href: "/press/logo-pack/lockup-emblem-wordmark-shadow-grey.png",
+          thumb: "/press/logo-pack/thumbs/lockup-emblem-wordmark-shadow-grey.webp",
+          label: "Emblem and wordmark with shadowed text on grey",
+          width: 480,
+          height: 224,
+        },
+        {
+          href: "/press/logo-pack/lockup-emblem-wordmark-large-grey.png",
+          thumb: "/press/logo-pack/thumbs/lockup-emblem-wordmark-large-grey.webp",
+          label: "Larger emblem and wordmark on grey",
+          width: 480,
+          height: 275,
+        },
+        {
+          href: "/press/logo-pack/lockup-emblem-wordmark-charcoal.png",
+          thumb: "/press/logo-pack/thumbs/lockup-emblem-wordmark-charcoal.webp",
+          label: "Emblem and wordmark on charcoal",
+          width: 480,
+          height: 225,
+        },
+        {
+          href: "/press/logo-pack/emblem-512-charcoal.png",
+          thumb: "/press/logo-pack/thumbs/emblem-512-charcoal.webp",
+          label: "Emblem on charcoal",
+          width: 480,
+          height: 480,
+        },
+      ],
+    },
     items: [
-      "Logo pack (PNG transparent + SVG, light/dark). TODO(copy): [LINK: off-site host, TBD]",
       "Key art (no text, plus a version with the logo). TODO(copy): [LINK: TBD]",
       "Screenshots (current Aurelion build only, 1920×1080+). TODO(copy): [LINK: TBD. Available once captured]",
       "Steam capsule art. TODO(copy): [LINK: TBD]",

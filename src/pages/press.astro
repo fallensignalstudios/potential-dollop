@@ -1,8 +1,11 @@
 ---
+import { statSync } from "node:fs";
 import Base from "../layouts/Base.astro";
 import { images, press, pressEmail, siteUrl, socials, steamUrl } from "../content/site";
 
 const introParts = press.intro.split(pressEmail);
+const logoPackZipBytes = statSync(new URL("../../public/press/logo-pack/logo-pack.zip", import.meta.url)).size;
+const logoPackZipSize = `${(logoPackZipBytes / (1024 * 1024)).toFixed(1)} MB`;
 ---
 
 <Base
@@ -96,6 +99,22 @@ const introParts = press.intro.split(pressEmail);
           </li>
         </ul>
         <p>{press.assets.note}</p>
+        <p>
+          <a class="text-link" href={press.assets.logoPack.zip}>Logo pack, ZIP, {logoPackZipSize}</a>
+        </p>
+        <ul class="logo-pack">
+          {
+            press.assets.logoPack.files.map((file) => (
+              <li>
+                <a class="logo-pack-link" href={file.href}>
+                  <img src={file.thumb} alt="" width={file.width} height={file.height} />
+                  <span>{file.label}</span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+        <p class="logo-pack-note">The zip also includes the emblem PNG and SVG linked above.</p>
         <ul class="download-list">
           {press.assets.items.map((item) => <li><span class="copy-todo">{item}</span></li>)}
         </ul>
