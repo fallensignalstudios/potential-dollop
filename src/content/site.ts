@@ -33,6 +33,13 @@ export const socials = [
   { label: "Instagram", href: "https://www.instagram.com/_sovereigncall_" },
 ] as const;
 
+/** Permanent Discord invites, tracked by placement. Do not swap them. */
+export const discordInvites = {
+  site: "https://discord.gg/PE6xrqw6aP",
+  links: "https://discord.gg/Gqt3wVcYsc",
+  press: "https://discord.gg/6QAa6qaa5G",
+} as const;
+
 export const steamAppId = "4032180";
 const steamStore =
   "https://store.steampowered.com/app/4032180/Sovereign_Call_Origins/";
