@@ -90,7 +90,7 @@ Also still open:
 | `/thanks` | Confirm-your-inbox, plus a wishlist button. `noindex`, and left out of the sitemap. |
 | `/404` | Branded, links home and to Steam. |
 
-Wishlist links go to Steam app `4032180` with `utm_source=website&utm_medium=owned&utm_campaign=site` and a placement in `utm_content` (`hero`, `status`, `footer_cta`, `nav`, `book_intro`, `book_game`, `press`, `thanks`). The branded 404 also uses `404`. There is no link to the legacy demo. Footer socials are TikTok and Instagram only.
+Wishlist links go to Steam app `4032180` with `utm_source=website&utm_medium=owned&utm_campaign=site` and a placement in `utm_content` (`hero`, `status`, `footer_cta`, `nav`, `book_intro`, `book_game`, `press`, `thanks`). The branded 404 also uses `404`. There is no link to the legacy demo. Footer socials are TikTok, Instagram, and Discord. Discord invites are tracked by placement and must not be swapped: the footer and homepage use `https://discord.gg/PE6xrqw6aP`, `/links` uses `https://discord.gg/Gqt3wVcYsc`, and the press kit uses `https://discord.gg/6QAa6qaa5G`.
 
 Author line, on `/` and `/book`:
 

@@ -1,6 +1,6 @@
 ---
 import { resolveKitAction } from "../config";
-import { home } from "../content/site";
+import { discordInvites, home } from "../content/site";
 
 const action = resolveKitAction();
 const copy = home.email;
@@ -11,6 +11,11 @@ const copy = home.email;
     <div class="stack">
       <h2 id="updates-heading" class="section-title">{copy.title}</h2>
       <p class="lede">{copy.blurb}</p>
+      <p>
+        <a class="text-link" href={discordInvites.site} target="_blank" rel="noopener noreferrer">
+          Join the Discord<span class="sr-only"> (opens in a new tab)</span>
+        </a>
+      </p>
     </div>
     {
       action ? (

@@ -1,7 +1,9 @@
 ---
 import { statSync } from "node:fs";
 import Base from "../layouts/Base.astro";
-import { images, press, pressEmail, siteUrl, socials, steamUrl } from "../content/site";
+import { discordInvites, images, press, pressEmail, siteUrl, socials, steamUrl } from "../content/site";
+
+const pressSocials = [...socials, { label: "Discord", href: discordInvites.press }];
 
 const introParts = press.intro.split(pressEmail);
 const logoPackZipBytes = statSync(new URL("../../public/press/logo-pack/logo-pack.zip", import.meta.url)).size;
@@ -44,7 +46,7 @@ const logoPackZipSize = `${(logoPackZipBytes / (1024 * 1024)).toFixed(1)} MB`;
                   ) : row.term === "Press contact" ? (
                     <a class="text-link" href={`mailto:${pressEmail}`}>{pressEmail}</a>
                   ) : row.term === "Socials" ? (
-                    socials.map((item, index) => (
+                    pressSocials.map((item, index) => (
                       <>
                         {index > 0 ? " · " : null}
                         {item.label}{" "}

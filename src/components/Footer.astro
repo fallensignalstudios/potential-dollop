@@ -1,5 +1,5 @@
 ---
-import { footer, nav, pressEmail, steamUrl } from "../content/site";
+import { discordInvites, footer, nav, pressEmail, steamUrl } from "../content/site";
 ---
 
 <footer class="site-footer">
@@ -23,6 +23,10 @@ import { footer, nav, pressEmail, steamUrl } from "../content/site";
             </>
           ))
         }
+        {" · "}
+        <a class="text-link" href={discordInvites.site} target="_blank" rel="noopener noreferrer">
+          Discord<span class="sr-only"> (opens in a new tab)</span>
+        </a>
       </p>
       <p>{footer.rights}</p>
     </div>

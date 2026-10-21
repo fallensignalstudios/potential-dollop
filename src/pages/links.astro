@@ -2,6 +2,7 @@
 import Base from "../layouts/Base.astro";
 import {
   amazonUrl,
+  discordInvites,
   footer,
   headline,
   home,
@@ -14,6 +15,7 @@ import {
 
 const links = [
   { href: steamUrl("links"), label: home.hero.primary, external: true, primary: true },
+  { href: discordInvites.links, label: "Join the Discord", external: true, primary: false },
   { href: "/#updates", label: home.hero.secondary, external: false, primary: false },
   { href: "/book", label: "Read the novel", external: false, primary: false },
   { href: amazonUrl, label: "Buy on Amazon", external: true, primary: false },
