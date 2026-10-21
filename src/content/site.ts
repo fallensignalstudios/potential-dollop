@@ -173,7 +173,7 @@ export const press = {
       { term: "Platform", value: "PC (Steam)" },
       { term: "Steam", value: "steam" },
       { term: "Release date", value: "Coming soon", todo: "TODO(copy): [TBD]" },
-      { term: "Price", value: "", todo: "TODO(copy): [TBD]" },
+      { term: "Price", value: "$49.99 USD" },
       { term: "Based in", value: "", todo: "TODO(copy): [TBD]" },
       { term: "Languages", value: "", todo: "TODO(copy): [TBD]" },
       { term: "Website", value: "website" },
