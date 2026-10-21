@@ -116,7 +116,22 @@ const logoPackZipSize = `${(logoPackZipBytes / (1024 * 1024)).toFixed(1)} MB`;
         </ul>
         <p class="logo-pack-note">The zip also includes the emblem PNG and SVG linked above.</p>
         <ul class="download-list">
-          {press.assets.items.map((item) => <li><span class="copy-todo">{item}</span></li>)}
+          {
+            press.assets.items.map((item) => (
+              <>
+                {item.startsWith("Trailer") ? (
+                  <li>
+                    <a class="text-link" href={press.assets.steamCapsule.href}>
+                      {press.assets.steamCapsule.label}
+                    </a>
+                  </li>
+                ) : null}
+                <li>
+                  <span class="copy-todo">{item}</span>
+                </li>
+              </>
+            ))
+          }
         </ul>
       </section>
 

@@ -249,10 +249,13 @@ export const press = {
         },
       ],
     },
+    steamCapsule: {
+      href: "/press/logo-pack/lockup-emblem-wordmark-large-grey.png",
+      label: "Steam capsule art, PNG, 1232×706",
+    },
     items: [
       "Key art (no text, plus a version with the logo). TODO(copy): [LINK: TBD]",
       "Screenshots (current Aurelion build only, 1920×1080+). TODO(copy): [LINK: TBD. Available once captured]",
-      "Steam capsule art. TODO(copy): [LINK: TBD]",
       "Trailer (downloadable MP4). TODO(copy): [LINK: TBD. Once a current-build trailer exists]",
       "Novel cover. TODO(copy): [LINK: TBD]",
       "Developer photo. TODO(copy): [LINK: TBD. Only if Matthew wants one public]",
