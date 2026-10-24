@@ -33,10 +33,13 @@ export const socials = [
   { label: "Instagram", href: "https://www.instagram.com/_sovereigncall_" },
 ] as const;
 
-/** Permanent Discord invites, tracked by placement. Do not swap them. */
+/** Permanent Discord invites, tracked by placement. Do not swap them.
+ * `playtest` is evergreen copy used only on /links. No end date, playtest number, or hide logic.
+ */
 export const discordInvites = {
   site: "https://discord.gg/PE6xrqw6aP",
   links: "https://discord.gg/Gqt3wVcYsc",
+  playtest: "https://discord.gg/73Pbga3rWb",
   press: "https://discord.gg/6QAa6qaa5G",
 } as const;
 
