@@ -10,11 +10,15 @@ import {
   pressEmail,
   siteName,
   socials,
-  steamUrl,
 } from "../content/site";
 
 const links = [
-  { href: steamUrl("links"), label: home.hero.primary, external: true, primary: true },
+  {
+    href: "https://store.steampowered.com/app/4032180/?utm_source=tiktok&utm_medium=social&utm_campaign=playtest1&utm_content=links_page",
+    label: home.hero.primary,
+    external: true,
+    primary: true,
+  },
   { href: discordInvites.links, label: "Join the Discord", external: true, primary: false },
   { href: discordInvites.playtest, label: "Sign up for the playtest", external: true, primary: false },
   { href: "/#updates", label: home.hero.secondary, external: false, primary: false },
